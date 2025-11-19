@@ -22,7 +22,7 @@ if (hacker1.length > hacker2.length) {
 // Iteration 3: Loops
 let uppername = "";
 for (let i = 0; i < hacker1.length; i++) {
-  uppername += hacker1[i].toUpperCase() + (i < hacker1.length ? " " : "");
+  uppername += hacker1[i].toUpperCase() + (i < hacker1.length - 1 ? " " : "");
 }
 console.log(uppername);
 
@@ -58,6 +58,14 @@ et blandit mauris fringilla. Fusce quis nulla purus. Duis dui urna, porta et lig
 ex. Aliquam elit urna, egestas quis justo eget, congue scelerisque nisl. Nunc nec sapien nibh.
 Sed vitae euismod ex.`;
 
+let count = 0;
+for (i = 0; i < longText.length; i++) {
+  if (longText[i] === " ") {
+    count++;
+  }
+}
+console.log(`another solution is ${count} words length`);
+
 const numWordsSmallText = smallText.match(/\b\w+\b/g);
 console.log(numWordsSmallText.length);
 const numWordsLongText = longText.match(/\b\w+\b/g);
@@ -65,11 +73,23 @@ console.log(numWordsLongText.length);
 
 let numEt = 0;
 for (let i = 0; i < longText.length; i++) {
-  if (longText[i] + longText[i + 1] === "et") {
-    numEt += 1;
+  if (longText[i]) {
+    if (longText[i] + longText[i + 1] === "et") {
+      numEt++;
+    }
   }
 }
-console.log(numEt);
+console.log(`Number of "et" in the sentence : ${numEt}`);
+
+let numEt2 = 0;
+for (let i = 0; i < longText.length; i++) {
+  if (longText[i]) {
+    if (longText.substring(i, i + 4) === " et ") {
+      numEt2++;
+    }
+  }
+}
+console.log(`[another try] Number of "et" in the sentence : ${numEt}`);
 
 // Bonus 2:
 const phraseToCheck = [
@@ -85,6 +105,17 @@ const phraseToCheck = [
   "Not a palindrome",
 ];
 
+// for (let i = 0; i < phraseToCheck.length; i++) {
+//   const cleanedPhrase = phraseToCheck[i]
+//     .toLowerCase()
+//     .replace(",", "")
+//     .replace("!", "")
+//     .replace(" ", "")
+//     .replace("'", "")
+//     .replace("?", "")
+//     .replace("-", "");
+//   console.log(cleanedPhrase);
+// }
 for (let i = 0; i < phraseToCheck.length; i++) {
   const cleanedPhrase = phraseToCheck[i]
     .toLowerCase()
