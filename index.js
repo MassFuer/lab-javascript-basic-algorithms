@@ -20,13 +20,17 @@ if (hacker1.length > hacker2.length) {
   );
 }
 // Iteration 3: Loops
+let uppername = "";
 for (let i = 0; i < hacker1.length; i++) {
-  console.log(hacker1[i].toUpperCase());
+  uppername += hacker1[i].toUpperCase() + (i < hacker1.length ? " " : "");
 }
+console.log(uppername);
 
+let reversedName = "";
 for (let i = hacker2.length - 1; i >= 0; i--) {
-  console.log(hacker2[i]);
+  reversedName += hacker2[i];
 }
+console.log(reversedName);
 
 if (hacker1 < hacker2) {
   console.log("The driver's name goes first.");
